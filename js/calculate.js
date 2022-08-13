@@ -57,7 +57,9 @@ function calculate() {
   console.log(values, kriteria, nama);
 
   // lokasi file proses
-  var redirect = 'http://localhost/SPK-WEB/results.php';
+  var getUrl = window.location;
+  var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+  var redirect = `${baseUrl}/results.php`;
   $.redirectPost(redirect, {kriteria: JSON.stringify(kriteria), values: JSON.stringify(values), nama: JSON.stringify(nama)});
 }
 
