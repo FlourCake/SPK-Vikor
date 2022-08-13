@@ -58,7 +58,7 @@ function calculate() {
 
   // lokasi file proses
   var getUrl = window.location;
-  var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+  var baseUrl = getUrl.protocol + "//" + getUrl.host + "/";
   var redirect = `${baseUrl}/results.php`;
   $.redirectPost(redirect, {kriteria: JSON.stringify(kriteria), values: JSON.stringify(values), nama: JSON.stringify(nama)});
 }
