@@ -1,7 +1,3 @@
-<?php
-require "functions.php";
-require "proses.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -76,13 +72,13 @@ require "proses.php";
             </div>
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="input.php">
+                <a class="nav-link" href="/input">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Calculator</span></a>
             </li>
@@ -130,17 +126,15 @@ require "proses.php";
                         </div>
                         <div class="col-lg-11" style="max-height: 500px; overflow: auto;">
                             <table class="matrix">
-                                <?php
-                                foreach ($values as $index => $value) {
-                                    echo "<tr>";
-                                    foreach ($value as $i => $isi) {
-                                        echo "<td>&nbsp;</td>";
-                                        echo "<td>$isi</td>";
-                                        echo "<td>&nbsp;</td>";
-                                    }
-                                    echo "</tr>";
-                                }
-                                ?>
+                                <% values.forEach(value => { %>
+                                    <tr>
+                                    <% value.forEach(isi => { %>
+                                        <td>&nbsp;</td>
+                                        <td><%= isi %></td>
+                                        <td>&nbsp;</td>
+                                    <% }) %>
+                                    </tr>
+                                <% }) %>
                             </table>
                         </div>
                     </div>
@@ -155,17 +149,15 @@ require "proses.php";
                         </div>
                         <div class="col-lg-11" style="max-height: 500px; overflow: auto;">
                             <table class="matrix">
-                                <?php
-                                foreach ($N as $index => $value) {
-                                    echo "<tr>";
-                                    foreach ($value as $i => $isi) {
-                                        echo "<td>&nbsp;</td>";
-                                        echo "<td>$isi</td>";
-                                        echo "<td>&nbsp;</td>";
-                                    }
-                                    echo "</tr>";
-                                }
-                                ?>
+                                <% N.forEach(value => { %>
+                                    <tr>
+                                    <% value.forEach(isi => { %>
+                                        <td>&nbsp;</td>
+                                        <td><%= isi %></td>
+                                        <td>&nbsp;</td>
+                                    <% }) %>
+                                    </tr>
+                                <% }) %>
                             </table>
                         </div>
                     </div>
@@ -181,17 +173,15 @@ require "proses.php";
                         </div>
                         <div class="col-lg-11" style="max-height: 500px; overflow: auto;">
                             <table class="matrix">
-                                <?php
-                                foreach ($Fstar as $index => $value) {
-                                    echo "<tr>";
-                                    foreach ($value as $i => $isi) {
-                                        echo "<td>&nbsp;</td>";
-                                        echo "<td>$isi</td>";
-                                        echo "<td>&nbsp;</td>";
-                                    }
-                                    echo "</tr>";
-                                }
-                                ?>
+                                <% Fstar.forEach(value => { %>
+                                    <tr>
+                                    <% value.forEach(isi => { %>
+                                        <td>&nbsp;</td>
+                                        <td><%= isi %></td>
+                                        <td>&nbsp;</td>
+                                    <% }) %>
+                                    </tr>
+                                <% }) %>
                             </table>
                         </div>
                     </div>
@@ -206,15 +196,13 @@ require "proses.php";
                         </div>
                         <div class="col-lg-3 mb-4" style="max-height: 500px; overflow: auto;">
                             <table class="matrix">
-                                <?php
-                                foreach ($S as $index => $value) {
-                                    echo "<tr>";
-                                    echo "<td>&nbsp;</td>";
-                                    echo "<td>$value</td>";
-                                    echo "<td>&nbsp;</td>";
-                                    echo "</tr>";
-                                }
-                                ?>
+                                <% S.forEach(value => { %>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td><%= value %></td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                <% }) %>
                             </table>
                         </div>
                         <div class="col-lg-1 mb-4">
@@ -224,24 +212,22 @@ require "proses.php";
                         </div>
                         <div class="col-lg-3 mb-4" style="max-height: 500px; overflow: auto;">
                             <table class="matrix">
-                                <?php
-                                foreach ($R as $index => $value) {
-                                    echo "<tr>";
-                                    echo "<td>&nbsp;</td>";
-                                    echo "<td>$value</td>";
-                                    echo "<td>&nbsp;</td>";
-                                    echo "</tr>";
-                                }
-                                ?>
+                                <% R.forEach(value => { %>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td><%= value %></td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                <% }) %>
                             </table>
                         </div>
                         <div class="col-lg-4 mb-4">
                             <div style="vertical-align: middle;">
-                                <p style="margin: 0 !important;">S- = <?= $Smin ?></p>
-                                <p style="margin: 0 !important;">S+ = <?= $Splus ?></p>
-                                <p style="margin: 0 !important;">R- = <?= $Rmin ?></p>
-                                <p style="margin: 0 !important;">R+ = <?= $Rplus ?></p>
-                                <p style="margin: 0 !important;">v &nbsp; = <?= $V ?></p>
+                                <p style="margin: 0 !important;">S- = <%= Smin %></p>
+                                <p style="margin: 0 !important;">S+ = <%= Splus %></p>
+                                <p style="margin: 0 !important;">R- = <%= Rmin %></p>
+                                <p style="margin: 0 !important;">R+ = <%= Rplus %></p>
+                                <p style="margin: 0 !important;">v &nbsp; = <%= V %></p>
                             </div>
                         </div>
                     </div>
@@ -270,20 +256,17 @@ require "proses.php";
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <?php
-                                        foreach ($rank as $index => $value) {
-                                            echo "<tr>";
-                                            foreach ($value as $i => $isi) {
-                                                if ($i == 0)
-                                                    echo '<td style="max-width: 250px;">', $value[$i], '</td>';
-                                                else
-                                                    echo "<td>$value[$i]</td>";
-                                            }
-                                            $temp = $index + 1;
-                                            echo "<td>$temp</td>";
-                                            echo "</tr>";
-                                        }
-                                        ?>
+                                        <% rank.forEach((value, i) => { %>
+                                            <tr>
+                                            <% value.forEach((isi, j) => {
+                                                if (j == 0) { %>
+                                                    <td style="max-width: 250px;"><%= value[j] %></td>
+                                                <% } else { %>
+                                                    <td><%= value[j] %></td>
+                                            <% }}) %>
+                                                <td><%= (i + 1) %></td>
+                                            </tr>
+                                        <% }) %>
                                     </tbody>
                                 </table>
                             </div>

@@ -1,24 +1,3 @@
-// function calculate() {
-//   var myArr = document.getElementById("form1");
-//   var myControls = myArr;
-//   var name_value_array = [];
-//   for (var i = 0; i < myControls.length; i++) {
-//     var aControl = myControls[i];
-
-//     // don't print the button value
-//     if (aControl.type != "button") {
-
-//       // store value in a map
-//       name_value_array.push(aControl.value);
-
-//       document.getElementById("resultField").appendChild(document.createTextNode(aControl.value + " "));
-//     }
-
-//   }
-//   // show map values as a popup
-//   alert(JSON.stringify(name_value_array));
-// }
-
 function calculate() {
   let table1 = document.getElementById("table1");
   let table2 = document.getElementById("table2");
@@ -59,7 +38,7 @@ function calculate() {
   // lokasi file proses
   var getUrl = window.location;
   var baseUrl = getUrl.protocol + "//" + getUrl.host + "/";
-  var redirect = `${baseUrl}/results.php`;
+  var redirect = `${baseUrl}results`;
   $.redirectPost(redirect, {kriteria: JSON.stringify(kriteria), values: JSON.stringify(values), nama: JSON.stringify(nama)});
 }
 
