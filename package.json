@@ -1,6 +1,6 @@
 {
   "name": "spk-web",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Vikor Method",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "author": "Pak Haji",
   "license": "ISC",
   "dependencies": {
-    "express.js": "^4.18.2",
+    "express": "^4.18.2",
     "ejs": "3.1.8",
     "body-parser": "1.20.1",
     "socket.io": "4.5.0"
